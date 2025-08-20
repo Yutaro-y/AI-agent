@@ -1,0 +1,41 @@
+{
+  "mcpServers": {
+    "ansible-mcp": {
+      "command": "python",
+      "args": ["/home/user/projects/mcp-ansible/src/ansible_mcp/server.py"],
+      "env": {
+        "MCP_ANSIBLE_PROJECT_ROOT": "/home/user/ansible-project",
+        "MCP_ANSIBLE_INVENTORY": "/home/user/ansible-project/inventories/hosts"
+      },
+      "transport": "stdio"
+    },
+    "file-system": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/home/user/"
+      ],
+      "transport": "stdio"
+    },
+    "fetch": {
+        "command": "uvx",
+        "args": ["mcp-server-fetch"],
+        "transport": "stdio"
+    },
+    "mcp-rag-server": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "/home/user/mcp-rag-server",
+        "python",
+        "-m",
+        "src.main"
+      ],
+      "env":{},
+      "disabled": false,
+      "alwaysAllow": []
+    }
+  }
+}
